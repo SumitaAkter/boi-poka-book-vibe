@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLoaderData, Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getStoredReadList, getStoredWishList } from '../../utility/addToDB';
+import { getStoredReadList, getStoredWishList } from '../../utility/addToDB.js';
 
 const ListedBooks = () => {
     const allBooks = useLoaderData();
