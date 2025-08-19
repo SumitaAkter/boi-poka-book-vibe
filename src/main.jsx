@@ -38,10 +38,12 @@ const router = createBrowserRouter([
         loader: () => fetch('/../src/data/booksData.json')// dont load all the books for one book
       },
       {
-        path: 'pages-to-read',
-        element: <PagesToRead></PagesToRead>,
-        //worst way to load some data
-        loader: () => fetch('/../src/data/booksData.json')// dont load all the books for one book
+        path: "/pages-to-read",
+        element: <PagesToRead />,
+        loader: async () => {
+          const res = await fetch("../src/data/booksData.json"); // ✅ Public থেকে fetch
+          return res.json();
+        }
       },
       {
         path: 'dashboard',
@@ -54,6 +56,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
-    <ToastContainer/>
+    <ToastContainer />
   </StrictMode>,
 )
