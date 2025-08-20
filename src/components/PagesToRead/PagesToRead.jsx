@@ -1,5 +1,5 @@
 import React from "react";
-import booksData from "../../data/booksData.json"; // ✅ direct import
+import booksData from "../../data/booksData.json"; // import directly
 import {
   BarChart,
   Bar,
@@ -13,7 +13,6 @@ import {
 } from "recharts";
 
 const PagesToRead = () => {
-  // Format chart data from JSON
   const chartData = booksData.map((book) => ({
     bookName: book.bookName,
     pagesRead: book.totalPages,
@@ -52,28 +51,15 @@ const PagesToRead = () => {
                 tick={{ fontSize: 12, fill: "#fff" }}
               />
               <YAxis
-                label={{
-                  value: "Pages",
-                  angle: -90,
-                  position: "insideLeft",
-                }}
+                label={{ value: "Pages", angle: -90, position: "insideLeft" }}
                 tick={{ fontSize: 12, fill: "#fff" }}
               />
-              <Tooltip
-                contentStyle={{ backgroundColor: "#333", color: "#fff" }}
-              />
+              <Tooltip contentStyle={{ backgroundColor: "#333", color: "#fff" }} />
               <Bar dataKey="pagesRead" barSize={30} radius={[200, 200, 0, 0]}>
                 {chartData.map((entry, index) => (
-                  <Cell
-                    key={`cell-${index}`}
-                    fill={colors[index % colors.length]}
-                  />
+                  <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                 ))}
-                <LabelList
-                  dataKey="year"
-                  position="top"
-                  style={{ fontWeight: "600", fill: "#fff" }}
-                />
+                <LabelList dataKey="year" position="top" style={{ fontWeight: "600", fill: "#fff" }} />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
