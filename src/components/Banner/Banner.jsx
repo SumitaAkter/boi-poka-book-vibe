@@ -7,14 +7,14 @@ const Banner = () => {
         <div className="hero bg-base-200 rounded-xl">
             <div className="hero-content flex flex-col p-2 lg:p-12 w-full items-center">
                 
-                {/* Image */}
+             
                 <img
                     src={bannerImg}
                     className="w-full max-w-lg rounded-lg shadow-2xl object-cover"
                     alt="Books Banner"
                 />
                 
-                {/* Text under the image */}
+              
                 <div className='text-center mt-4 p-5'>
                     <h1 className="text-2xl lg:text-3xl font-bold">Books to freshen up your bookshelf</h1>
                     <Link to="/listedbooks">

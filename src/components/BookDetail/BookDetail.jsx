@@ -19,7 +19,7 @@ const BookDetail = () => {
         <div className="bg-base-200 min-h-screen pt-8 pb-4">
             <div className="container mx-auto flex flex-col lg:flex-row items-start gap-6 px-4">
                 
-                {/* Image with real book proportion */}
+               
                 <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
                     <img
                         src={image}
@@ -28,7 +28,7 @@ const BookDetail = () => {
                     />
                 </div>
 
-                {/* Details */}
+              
                 <div className="flex-1">
                     <h2 className="text-3xl font-bold">{bookName}</h2>
                     <h4 className="text-lg mt-1">By: {author}</h4>

@@ -1,5 +1,5 @@
 import React from "react";
-import booksData from "../../data/booksData.json"; // import directly
+import booksData from "../../data/booksData.json"; 
 import {
   BarChart,
   Bar,

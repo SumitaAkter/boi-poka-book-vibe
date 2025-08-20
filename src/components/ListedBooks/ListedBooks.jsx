@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import booksData from "../../data/booksData.json"; // move JSON to src/data
+import booksData from "../../data/booksData.json"; 
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -10,7 +10,7 @@ const ListedBooks = () => {
     const [wishList, setWishList] = useState([]);
     const [sortOption, setSortOption] = useState("default");
 
-    const allBooks = booksData; // fallback from JSON
+    const allBooks = booksData; 
 
     useEffect(() => {
         const storedReadList = getStoredReadList().map(id => parseInt(id));
