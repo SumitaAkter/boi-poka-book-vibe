@@ -16,31 +16,47 @@ const BookDetail = () => {
     const handleAddToWishlist = () => addToStoredWishList(id);
 
     return (
-        <div className="hero bg-base-200 min-h-screen">
-            <div className="hero-content flex-col lg:flex-row gap-6">
-                <img className="max-w-sm rounded-lg shadow-2xl" src={image} alt={bookName} />
-                <div>
-                    <h2 className="card-title">{bookName}</h2>
-                    <h4>By: {author}</h4>
-                    <div className="divider"></div>
-                    <h4>Category: {category}</h4>
-                    <div className="divider"></div>
+        <div className="bg-base-200 min-h-screen pt-8 pb-4">
+            <div className="container mx-auto flex flex-col lg:flex-row items-start gap-6 px-4">
+                
+                {/* Image with real book proportion */}
+                <div className="w-full sm:w-3/4 md:w-1/2 lg:w-1/3">
+                    <img
+                        src={image}
+                        alt={bookName}
+                        className="w-full rounded-lg shadow-2xl object-cover aspect-[2/3]"
+                    />
+                </div>
+
+                {/* Details */}
+                <div className="flex-1">
+                    <h2 className="text-3xl font-bold">{bookName}</h2>
+                    <h4 className="text-lg mt-1">By: {author}</h4>
+                    <div className="divider my-2"></div>
+
+                    <h4 className="font-semibold">Category: {category}</h4>
+                    <div className="divider my-2"></div>
+
                     <p><span className='font-semibold'>Review: </span>{review}</p>
-                    <div className="mt-2">
+
+                    <div className="mt-2 flex flex-wrap gap-2">
                         {tags.map((tag, index) => (
                             <button
                                 key={index}
-                                className="btn btn-xs bg-green-100 text-green-600 p-2 rounded-2xl mr-2 mt-2">{tag}</button>
+                                className="btn btn-xs bg-green-100 text-green-600 p-2 rounded-2xl">{tag}</button>
                         ))}
                     </div>
-                    <div className="divider mt-4"></div>
+
+                    <div className="divider my-2"></div>
+
                     <p><span className='font-semibold'>Pages:</span> {totalPages}</p>
                     <p><span className='font-semibold'>Publisher:</span> {publisher}</p>
                     <p><span className='font-semibold'>Year:</span> {yearOfPublishing}</p>
                     <p><span className='font-semibold'>Rating:</span> {rating} ⭐</p>
-                    <div className="mt-4 flex gap-4">
-                        <button onClick={handleMarkAsRead} className="btn btn-primary btn-outline">Mark as Read</button>
-                        <button onClick={handleAddToWishlist} className="btn btn-primary">Add to Wishlist</button>
+
+                    <div className="mt-4 flex flex-col sm:flex-row sm:gap-4 gap-2">
+                        <button onClick={handleMarkAsRead} className="btn btn-primary btn-outline w-full sm:w-auto">Mark as Read</button>
+                        <button onClick={handleAddToWishlist} className="btn btn-primary w-full sm:w-auto">Add to Wishlist</button>
                     </div>
                 </div>
             </div>

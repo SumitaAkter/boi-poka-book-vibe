@@ -1,17 +1,25 @@
 import React from 'react';
-import bannerImg from '../../assets/books.jpg'
+import bannerImg from '../../assets/books.jpg';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className="hero bg-base-200 min-h-screen rounded-xl">
-            <div className="hero-content flex-col lg:flex-row-reverse p-5 lg:p-24">
+        <div className="hero bg-base-200 rounded-xl">
+            <div className="hero-content flex flex-col p-2 lg:p-12 w-full items-center">
+                
+                {/* Image */}
                 <img
                     src={bannerImg}
-                    className="lg:max-w-sm rounded-lg shadow-2xl"
+                    className="w-full max-w-lg rounded-lg shadow-2xl object-cover"
+                    alt="Books Banner"
                 />
-                <div className='sm:text-center'>
-                    <h1 className="text-2xl lg:text-5xl font-bold">Books to freshen up your bookshelf</h1>
-                    <button className="btn bg-green-500 mt-6 lg:mt-10">View the list</button>
+                
+                {/* Text under the image */}
+                <div className='text-center mt-4 p-5'>
+                    <h1 className="text-2xl lg:text-3xl font-bold">Books to freshen up your bookshelf</h1>
+                    <Link to="/listedbooks">
+                        <button className="btn bg-green-500 mt-4 lg:mt-6">View the list</button>
+                    </Link>
                 </div>
             </div>
         </div>

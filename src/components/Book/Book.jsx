@@ -5,30 +5,44 @@ const Book = ({ book }) => {
     const { bookId, image, bookName, author, tags, category } = book;
 
     return (
-        <div className="card bg-base-100 w-96 shadow-xl p-6">
-            <figure className='bg-blue-400 py-8 rounded-2xl'>
-                <img src={image} className='h-[166px] object-cover' alt={bookName} />
-            </figure>
-            <div className="card-body">
-                <div className='flex flex-wrap justify-start gap-2'>
+        <div className="card bg-base-100 shadow-xl p-4 flex flex-col h-full w-full max-w-xs sm:max-w-sm lg:max-w-md">
+            {/* Image with real book proportion */}
+            <div className="w-full">
+                <img
+                    src={image}
+                    alt={bookName}
+                    className="w-full rounded-lg shadow-md object-cover aspect-[2/3]"
+                />
+            </div>
+
+            {/* Card body */}
+            <div className="card-body flex flex-col flex-grow p-2">
+                {/* Tags */}
+                <div className='flex flex-wrap gap-2 mt-2'>
                     {tags.map((tag, index) => (
                         <button
                             key={index}
                             className="btn btn-xs bg-green-200 text-green-600 p-2 rounded-2xl">{tag}</button>
                     ))}
                 </div>
+
+                {/* Book title */}
                 <h2 className="card-title mt-2">
                     {bookName}
                     <div className="badge badge-secondary ml-2">NEW</div>
                 </h2>
-                <p>By: {author}</p>
-                <div className="border-t-2 border-dashed my-3"></div>
-                <div className="card-actions justify-between items-center">
+
+                <p className="text-sm">By: {author}</p>
+
+                <div className="border-t-2 border-dashed my-2"></div>
+
+                {/* Category + Button */}
+                <div className="card-actions justify-between items-center mt-auto flex-col gap-2">
                     <div className="badge badge-outline">{category}</div>
+                    <Link to={`/books/${bookId}`} className="w-full">
+                        <button className="btn btn-primary btn-outline w-full">See Details</button>
+                    </Link>
                 </div>
-                <Link to={`/books/${bookId}`}>
-                    <button className="btn mt-4 p-2 btn-primary btn-outline w-full">See Details</button>
-                </Link>
             </div>
         </div>
     );
